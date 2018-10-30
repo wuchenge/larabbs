@@ -58,25 +58,40 @@
 ** 修改你自己的,数据库,百度翻译，邮件发送, 环境配置
 
 > BAIDU_TRANSLATE_APPID=
+
 > BAIDU_TRANSLATE_KEY=
 
 > MAIL_DRIVER=
+
 > MAIL_HOST=
+
 > MAIL_PORT=
+
 > MAIL_USERNAME=
+
 > MAIL_PASSWORD=
+
 > MAIL_ENCRYPTION=
+
 > MAIL_FROM_ADDRESS=
+
 > MAIL_FROM_NAME=
 
+
 > APP_NAME=
+
 > APP_ENV=production
+
 > APP_KEY=
+
 > APP_DEBUG=false
+
 > APP_LOG_LEVEL=
+
 > APP_URL=
 
 > QUEUE_DRIVER=redis
+
 > CACHE_DRIVER=redis
 
 * php artisan migrate
