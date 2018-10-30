@@ -84,3 +84,5 @@
 * crontab -e 
 `* * * * * php /server/larabbs/artisan schedule:run >> /dev/null 2>&1`
 * php artisan horizon
+* vim config/database.php
+* mysql 'strict' => true 更改为 'strict'=>false
