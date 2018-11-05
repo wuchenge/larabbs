@@ -4,8 +4,10 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "require": {
+    "require":
+    {
         "php": ">=7.0.0",
+        "dingo/api": "^2.0.0-alpha2",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "~6.3",
         "hieu-le/active": "~3.5",
@@ -22,7 +24,8 @@
         "summerblue/administrator": "~1.1",
         "viacreative/sudo-su": "~1.1"
     },
-    "require-dev": {
+    "require-dev":
+    {
         "barryvdh/laravel-debugbar": "~3.1",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
@@ -31,27 +34,33 @@
         "summerblue/generator": "~0.5",
         "symfony/thanks": "^1.0"
     },
-    "autoload": {
+    "autoload":
+    {
         "classmap": [
             "database/seeds",
             "database/factories"
         ],
-        "psr-4": {
+        "psr-4":
+        {
             "App\\": "app/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
+    "autoload-dev":
+    {
+        "psr-4":
+        {
             "Tests\\": "tests/"
         }
     },
-    "extra": {
-        "laravel": {
-            "dont-discover": [
-            ]
+    "extra":
+    {
+        "laravel":
+        {
+            "dont-discover": []
         }
     },
-    "scripts": {
+    "scripts":
+    {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
@@ -63,9 +72,12 @@
             "@php artisan package:discover"
         ]
     },
-    "config": {
+    "config":
+    {
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
