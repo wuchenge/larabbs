@@ -178,7 +178,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // 第三方注册
+        //
+        // 短信发送
         App\Providers\EasySmsServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
 
     ],
 

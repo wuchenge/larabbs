@@ -1,0 +1,6 @@
+// 获取code
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbf7b367f4f2c2d4b&redirect_uri=http://larabbs.test&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+// access_token
+https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxbf7b367f4f2c2d4b&secret=39df7ea8eb453d8ff80dee11b100c244&code=061hLOZw0pfDwi1yL4Ww0awBZw0hLOZO&grant_type=authorization_code
+// 获取个人信息
+https://api.weixin.qq.com/sns/userinfo?access_token=15_k0I4YxocV-jHHZ07sMhCKwU96gWRWs_c64nJd_CVG1oLHFW8XjnhrQaDTJAtKdNW3tO6gf4-YLLm1CVeQZJpsw&openid=oWBQP02O3pOV-hak-Rcya3bl8rZY&lang=zh_CN
