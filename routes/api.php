@@ -50,6 +50,10 @@ $api->version('v1', [
         $api->get('topics/{topic}/replies', 'RepliesController@index')
             ->name('api.topics.replies.index');
 
+        // 资源推荐
+        $api->get('links', 'LinksController@index')
+            ->name('api.links.index');
+
         // 某个用户的回复列表
         $api->get('users/{user}/replies', 'RepliesController@userIndex')
             ->name('api.users.replies.index');
