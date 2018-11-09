@@ -182,6 +182,7 @@ return [
         // 短信发送
         App\Providers\EasySmsServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+        App\Providers\JpushServiceProvider::class,
 
     ],
 
