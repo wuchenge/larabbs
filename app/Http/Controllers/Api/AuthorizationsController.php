@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Api\SocialAuthorizationRequest;
 use App\Http\Requests\Api\AuthorizationRequest;
 use Auth;
+use Zend\Diactoros\Response as Psr7Response;
+use Psr\Http\Message\ServerRequestInterface;
+use League\OAuth2\Server\Exception\OAuthServerException;
+use League\OAuth2\Server\AuthorizationServer;
 
 class AuthorizationsController extends Controller
 {
@@ -62,21 +66,30 @@ class AuthorizationsController extends Controller
         return $this->respondWithToken($token)->setStatusCode(201);
     }
 
-    public function store(AuthorizationRequest $request)
+    // public function store(AuthorizationRequest $request)
+    // {
+    //     $username = $request->username;
+
+    //     filter_var($username, FILTER_VALIDATE_EMAIL) ?
+    //         $credentials['email'] = $username :
+    //         $credentials['phone'] = $username;
+
+    //     $credentials['password'] = $request->password;
+
+    //     if (!$token = \Auth::guard('api')->attempt($credentials)) {
+    //         return $this->response->errorUnauthorized('用户名或密码错误');
+    //     }
+
+    //     return $this->respondWithToken($token)->setStatusCode(201);
+    // }
+
+    public function store(AuthorizationRequest $originRequest, AuthorizationServer $server, ServerRequestInterface $serverRequest)
     {
-        $username = $request->username;
-
-        filter_var($username, FILTER_VALIDATE_EMAIL) ?
-            $credentials['email'] = $username :
-            $credentials['phone'] = $username;
-
-        $credentials['password'] = $request->password;
-
-        if (!$token = \Auth::guard('api')->attempt($credentials)) {
-            return $this->response->errorUnauthorized('用户名或密码错误');
+        try {
+            return $server->respondToAccessTokenRequest($serverRequest, new Psr7Response)->withStatus(201);
+        } catch (OAuthServerException $e) {
+            return $this->response->errorUnauthorized($e->getMessage());
         }
-
-        return $this->respondWithToken($token)->setStatusCode(201);
     }
 
     public function update()
