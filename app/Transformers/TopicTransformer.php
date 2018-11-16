@@ -12,7 +12,7 @@ use League\Fractal\TransformerAbstract;
 
 class TopicTransformer extends TransformerAbstract
 {
-    protected $availableIncludes = ['user', 'category'];
+    protected $availableIncludes = ['user', 'category', 'topReplies'];
 
     public function transform(Topic $topic)
     {
@@ -30,6 +30,11 @@ class TopicTransformer extends TransformerAbstract
             'created_at' => $topic->created_at->toDateTimeString(),
             'updated_at' => $topic->updated_at->toDateTimeString(),
         ];
+    }
+
+    public function includeTopReplies(Topic $topic)
+    {
+        return $this->collection($topic->topReplies, new ReplyTransformer());
     }
 
     public function includeUser(Topic $topic)
